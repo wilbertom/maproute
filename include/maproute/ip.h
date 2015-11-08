@@ -41,9 +41,16 @@ public:
     //
     IPV4(std::string ip);
 
+    void set_x(ipv4_component c);
     ipv4_component get_x() const;
+
+    void set_y(ipv4_component c);
     ipv4_component get_y() const;
+
+    void set_a(ipv4_component c);
     ipv4_component get_a() const;
+
+    void set_b(ipv4_component c);
     ipv4_component get_b() const;
 
 };
