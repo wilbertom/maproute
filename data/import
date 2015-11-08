@@ -1,0 +1,2 @@
+.mode csv
+.import IP2LOCATION-LITE-DB5.CSV ips

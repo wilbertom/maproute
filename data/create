@@ -1,0 +1,6 @@
+#!/bin/bash
+
+DB_NAME=ip.db
+
+sqlite3 $DB_NAME < ip.sql
+sqlite3 $DB_NAME < import
