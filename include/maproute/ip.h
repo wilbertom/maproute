@@ -24,6 +24,7 @@ private:
     ipv4_component b;
 
 public:
+    // TODO: create an initialization without any parameters
 
     //
     // Creates a new ipv4 instance with the for components needed to
