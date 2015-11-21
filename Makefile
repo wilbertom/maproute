@@ -18,7 +18,9 @@ all:
 command:
 	echo "Creating the executable"
 	cd build; \
-	$(CXX) $(cflags) -I $(include) -l$(name) -L . ../cli/* -o main
+	$(CXX) $(cflags) -I $(include) -l$(name) -L . ../cli/tracerouteparseip.cpp -o tracerouteparseip; \
+	$(CXX) $(cflags) -I $(include) -l$(name) -L . ../cli/whereisip.cpp -o whereisip; \
+	cp ../cli/maproute ./
 
 clean:
 	rm $(build)/*
