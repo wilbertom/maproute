@@ -20,11 +20,16 @@ private:
 
 public:
     InputWalker(std::vector<T> input);
-    
+
     //
     // Advance the input and return the new element.
     //
     T advance();
+
+    //
+    // Returns the current element in the input.
+    //
+    T get_current() const;
 
     //
     // Go back one element in the input.
@@ -44,10 +49,13 @@ template <class T> InputWalker<T>::InputWalker(std::vector<T> input) {
     this->size = this->input.size();
 }
 
+template <class T> T InputWalker<T>::get_current() const {
+    return this->input[this->current - 1];
+}
+
 template <class T> T InputWalker<T>::advance() {
-    T el = this->input[this->current];
     this->current += 1;
-    return el;
+    return this->get_current();
 }
 
 template <class T> void InputWalker<T>::backtrack() {
