@@ -147,36 +147,6 @@ bool expect_ip(InputWalker<TraceToken> *inputs, TraceGateway *out) {
 
 }
 
-bool expect_ms(InputWalker<TraceToken> *inputs, TraceGateway *out, uint i) {
-    bool result;
-    std::string ms_string;
-
-    result = expect(inputs, TRACE_TOKEN_NUMBER);
-    ms_string.append(inputs->get_current().contents);
-    result = expect(inputs, TRACE_TOKEN_DOT);
-    ms_string.append(inputs->get_current().contents);
-    result = expect(inputs, TRACE_TOKEN_NUMBER);
-    ms_string.append(inputs->get_current().contents);
-
-    double ms = std::stod(ms_string);
-
-    // TODO: find a better way to do this, this is ugly
-    if (i == 1) {
-        out->ms_1 = ms;
-    } else if (i == 2) {
-        out->ms_2 = ms;
-    } else if (i == 3) {
-        out->ms_3 = ms;
-    } else {
-        throw std::domain_error("Unknown ms input.");
-    }
-
-    result = expect(inputs, TRACE_TOKEN_SPACE);
-    result = expect(inputs, TRACE_TOKEN_MS);
-
-    return result;
-}
-
 bool parse_gateway(std::vector<TraceToken> *tokens, TraceGateway *out) {
 
     InputWalker<TraceToken> inputs {*tokens};
@@ -192,21 +162,10 @@ bool parse_gateway(std::vector<TraceToken> *tokens, TraceGateway *out) {
     result = expect_ip(&inputs, out);
     result = expect(&inputs, TRACE_TOKEN_SPACE);
 
-    // milliseconds 1
-    result = expect_ms(&inputs, out, 1);
-    result = expect(&inputs, TRACE_TOKEN_SPACE);
-
-    // milliseconds 2
-    result = expect_ms(&inputs, out, 2);
-    result = expect(&inputs, TRACE_TOKEN_SPACE);
-
-    // milliseconds 3
-    result = expect_ms(&inputs, out, 3);
-
     return result;
 }
 
-bool TracerouteLineParser::parse(std::string *line, TraceGateway *out) {
+bool TracerouteLineParser::parse(std::string *line, IPV4 *ip) {
 
     std::vector<TraceToken> tokens;
     bool valid = tokenize(line, &tokens);

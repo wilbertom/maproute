@@ -3,7 +3,6 @@
 
 #include <string>
 #include <vector>
-#include <maproute/trace_gateway.h>
 
 //
 // This class parses a single output of the traceroute command into a
@@ -32,7 +31,7 @@ public:
     // Parses the line and creates a trace gateway record.
     // Returns true if all went ok.
     //
-    bool parse(std::string *line, TraceGateway *out);
+    bool parse(std::string *line, IPV4 *ip);
 
 };
 
