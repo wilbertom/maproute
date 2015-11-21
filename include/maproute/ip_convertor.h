@@ -2,6 +2,8 @@
 #define MR_IP_CONVERTOR_H
 
 #include <string>
+
+#include <maproute/types.h>
 #include <maproute/ip.h>
 
 //
@@ -20,6 +22,13 @@ public:
     // Parses an IP in the format x.y.a.b into the out IP.
     //
     void string_to_ip(const std::string *ip, IPV4 *out);
+
+    //
+    // Converts an IP into an unsigned integer as described in
+    // http://lite.ip2location.com/faqs. This integer format makes it easy to
+    // query IP ranges.
+    //
+    uint ip_to_uint(const IPV4 *ip);
 
 };
 

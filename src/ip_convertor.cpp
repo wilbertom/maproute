@@ -34,4 +34,17 @@ void IPV4Convertor::string_to_ip(const std::string *ip, IPV4 *out) {
 
 }
 
+
+uint IPV4Convertor::ip_to_uint(const IPV4 *ip) {
+
+    // each component has a weight a power of 256, in an IP with the format
+    // x.y.a.b
+    // we get an integer by:
+    // (x * 256 ^ 3) + (y * 256 ^ 2) + (a * 256 ^ 1) + (b * 256 ^ 0)
+    return (16777216 * ip->get_x()) +
+        (65536 * ip->get_y()) +
+        (256 * ip->get_a()) +
+        (ip->get_b());
+}
+
 #endif
