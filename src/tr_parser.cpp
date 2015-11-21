@@ -81,7 +81,6 @@ bool tokenize(std::string *line, std::vector<TraceToken> *out) {
             token.contents = "*";
 
         } else if (c == 'm') {
-
             i++;
             c = input[i];
 
@@ -96,7 +95,9 @@ bool tokenize(std::string *line, std::vector<TraceToken> *out) {
             return false;
         }
 
-        out->push_back(token);
+        if (token.kind != TRACE_TOKEN_SPACE) {
+            out->push_back(token);
+        }
 
     }
 
@@ -153,13 +154,10 @@ bool parse_gateway(std::vector<TraceToken> *tokens, IPV4 *out) {
     bool result;
 
     // the hop number
-    result = expect(&inputs, TRACE_TOKEN_SPACE);
     result = expect(&inputs, TRACE_TOKEN_NUMBER);
-    result = expect(&inputs, TRACE_TOKEN_SPACE);
-
+    
     // the ip address
     result = expect_ip(&inputs, out);
-    result = expect(&inputs, TRACE_TOKEN_SPACE);
 
     return result;
 }
