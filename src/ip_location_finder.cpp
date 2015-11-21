@@ -4,7 +4,7 @@
 #include <iostream>
 
 #include <maproute/ip_location_finder.hpp>
-#include <maproute/types.h>
+#include <maproute/types.hpp>
 
 
 int process_lines(void *data, int columns, char **row, char **row_columns) {

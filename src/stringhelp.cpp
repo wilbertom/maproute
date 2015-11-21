@@ -1,7 +1,7 @@
 #ifndef MR_STRING_HELP_C
 #define MR_STRING_HELP_C
 
-#include <maproute/stringhelp.h>
+#include <maproute/stringhelp.hpp>
 
 std::string string_get(const std::string *self, int ith, int jth) {
     return self->substr(ith, jth - ith);

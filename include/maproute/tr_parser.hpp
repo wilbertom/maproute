@@ -4,6 +4,8 @@
 #include <string>
 #include <vector>
 
+#include <maproute/ip.hpp>
+
 //
 // This class parses a single output of the traceroute command into a
 // TraceGateway structure.

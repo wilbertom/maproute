@@ -1,8 +1,8 @@
 #ifndef MR_IP_CONVERTOR_C
 #define MR_IP_CONVERTOR_C
 
-#include <maproute/ip_convertor.h>
-#include <maproute/stringhelp.h>
+#include <maproute/ip_convertor.hpp>
+#include <maproute/stringhelp.hpp>
 
 void IPV4Convertor::ip_to_string(const IPV4 *ip, std::string *buffer) {
 

@@ -2,7 +2,7 @@
 #define MR_IP_H
 
 #include <string>
-#include <maproute/types.h>
+#include <maproute/types.hpp>
 
 //
 // Each ipv4 component must be a unsigned integer ranging from 0 to 255

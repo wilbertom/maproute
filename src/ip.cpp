@@ -1,7 +1,7 @@
 #ifndef MR_IP_C
 #define MR_IP_C
 
-#include <maproute/ip.h>
+#include <maproute/ip.hpp>
 
 IPV4::IPV4(
     ipv4_component x,

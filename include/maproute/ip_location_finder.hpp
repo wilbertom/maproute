@@ -3,10 +3,8 @@
 
 #include <sqlite3.h>
 
-#include <maproute/ip.h>
-#include <maproute/ip_convertor.h>
-
-
+#include <maproute/ip.hpp>
+#include <maproute/ip_convertor.hpp>
 
 //
 // Finds IP address' locations. This class is implemented by having a sqlite3

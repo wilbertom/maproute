@@ -3,8 +3,8 @@
 
 #include <string>
 
-#include <maproute/types.h>
-#include <maproute/ip.h>
+#include <maproute/types.hpp>
+#include <maproute/ip.hpp>
 
 // TODO: rename IPV4 to IP, we can transform ipv6 by overloading methods
 
