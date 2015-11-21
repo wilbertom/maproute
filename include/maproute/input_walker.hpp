@@ -3,8 +3,6 @@
 
 #include <vector>
 
-#include <maproute/types.h>
-
 //
 // Walk through a vector of data while processing one element at a time.
 // The idea is to have a simple interface where users can advance in the input
@@ -22,7 +20,7 @@ private:
 
 public:
     InputWalker(std::vector<T> input);
-
+    
     //
     // Advance the input and return the new element.
     //
@@ -39,5 +37,25 @@ public:
     //
     bool ended();
 };
+
+template <class T> InputWalker<T>::InputWalker(std::vector<T> input) {
+    this->input = input;
+    this->current = 0;
+    this->size = this->input.size();
+}
+
+template <class T> T InputWalker<T>::advance() {
+    T el = this->input[this->current];
+    this->current += 1;
+    return el;
+}
+
+template <class T> void InputWalker<T>::backtrack() {
+    this->current -= 1;
+}
+
+template <class T> bool InputWalker<T>::ended() {
+    return this->current >= this->size;
+}
 
 #endif
