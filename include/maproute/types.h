@@ -3,6 +3,4 @@
 
 typedef unsigned int uint;
 
-typedef char byte;
-
 #endif

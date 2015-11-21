@@ -8,7 +8,7 @@
 // Each ipv4 component must be a unsigned integer ranging from 0 to 255
 // inclusive. Four of these components and you have a full address.
 //
-typedef byte ipv4_component;
+typedef uint ipv4_component;
 
 //
 // This is an IP address in the x.y.a.b format
