@@ -33,7 +33,7 @@ public:
     // Parses the line and creates a trace gateway record.
     // Returns true if all went ok.
     //
-    bool parse(std::string *line, IPV4 *ip);
+    bool parse(std::string *line, IPV4 *out);
 
 };
 

@@ -11,7 +11,6 @@
 #include <maproute/ip_convertor.hpp>
 
 
-
 typedef enum TraceTokenKind {
     TRACE_TOKEN_SPACE, // whitespace token
     TRACE_TOKEN_NUMBER,
@@ -119,7 +118,7 @@ bool expect(InputWalker<TraceToken> *walker, TraceTokenKind kind) {
 
 }
 
-bool expect_ip(InputWalker<TraceToken> *inputs, TraceGateway *out) {
+bool expect_ip(InputWalker<TraceToken> *inputs, IPV4 *out) {
     bool result;
     std::string ip_string;
     IPV4Convertor convertor;
@@ -142,13 +141,13 @@ bool expect_ip(InputWalker<TraceToken> *inputs, TraceGateway *out) {
     result = expect(inputs, TRACE_TOKEN_NUMBER);
     ip_string.append(inputs->get_current().contents);
 
-    convertor.string_to_ip(&ip_string, out->ip);
+    convertor.string_to_ip(&ip_string, out);
 
     return result;
 
 }
 
-bool parse_gateway(std::vector<TraceToken> *tokens, TraceGateway *out) {
+bool parse_gateway(std::vector<TraceToken> *tokens, IPV4 *out) {
 
     InputWalker<TraceToken> inputs {*tokens};
     bool result;
@@ -156,7 +155,6 @@ bool parse_gateway(std::vector<TraceToken> *tokens, TraceGateway *out) {
     // the hop number
     result = expect(&inputs, TRACE_TOKEN_SPACE);
     result = expect(&inputs, TRACE_TOKEN_NUMBER);
-    out->hop_number = std::stoi(inputs.get_current().contents);
     result = expect(&inputs, TRACE_TOKEN_SPACE);
 
     // the ip address
@@ -166,7 +164,7 @@ bool parse_gateway(std::vector<TraceToken> *tokens, TraceGateway *out) {
     return result;
 }
 
-bool TracerouteLineParser::parse(std::string *line, IPV4 *ip) {
+bool TracerouteLineParser::parse(std::string *line, IPV4 *out) {
 
     std::vector<TraceToken> tokens;
     bool valid = tokenize(line, &tokens);
