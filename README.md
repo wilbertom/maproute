@@ -26,7 +26,7 @@ to `/usr/local/bin`. It will copy `libmaproute.so` to `/usr/local/lib` and
 some development headers to `/usr/local/include`. Also it will install
 an IP database that we use to find an IP's location to `/var/lib/maproute`.
 
-## Usage
+### Usage
 
 The basic usage is:
 
@@ -49,3 +49,20 @@ whereisip
 This command reads from standard input as opposed from a command line
 argument. That's a little weird but it's because we use with pipes to create
 the `maproute` command.
+
+
+### IP Database
+
+This command uses `IP2Location` database. The accuracy of the output is
+completely dependent on how good that database is. If anyone knows of a more
+accurate way of doing this let me know.
+
+You should update your database monthly from `http://lite.ip2location.com`, in
+order to download an updated copy of the database you need to register for
+a free account.
+
+
+### Attribution
+
+This site or product includes IP2Location LITE data available from
+[http://lite.ip2location.com](http://lite.ip2location.com).
