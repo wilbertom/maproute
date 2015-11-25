@@ -1,6 +1,5 @@
 
 CREATE TABLE IF NOT EXISTS ips (
-    -- id INTEGER,
     ip_from INTEGER UNIQUE,
     ip_to INTEGER UNIQUE,
     country_code TEXT,
@@ -9,5 +8,4 @@ CREATE TABLE IF NOT EXISTS ips (
     city_name TEXT,
     latitude REAL,
     longitude REAL
-    -- PRIMARY KEY (id ASC)
 );

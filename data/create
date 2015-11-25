@@ -4,3 +4,5 @@ DB_NAME=ip.db
 
 sqlite3 $DB_NAME < ip.sql
 sqlite3 $DB_NAME < import
+sqlite3 $DB_NAME < drop_country_code.sql
+sqlite3 $DB_NAME < index.sql
