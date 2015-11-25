@@ -29,6 +29,10 @@ shared:
 	cd $(build); \
 	$(CXX) $(cflags) -I $(include) -shared -fPIC -o $(libname) $(src)
 
+db:
+	cd data; \
+	./create
+
 install:
 	cd $(build); \
 	cp -R $(include)/$(name) $(install_include); \
