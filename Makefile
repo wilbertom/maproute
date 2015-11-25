@@ -2,7 +2,7 @@
 makefile_version = '0.1.0.0'
 build = ./build
 include=../include
-cflags = -Wall -std=c++14 -g -DIP_DATABASE_PATH=\"/var/data/ip-location.db\" \
+cflags = -Wall -std=c++14 -g -DIP_DATABASE_PATH=\"/var/lib/maproute/ip-location.db\" \
 	-lsqlite3
 src = ../src/*
 name = maproute
