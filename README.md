@@ -7,6 +7,11 @@ Underneath the hood it delegates the heavy lifting to `traceroute` so all
 of it's options are supported. The only requirement it places on it is that
 the `-n` flag is used, and it is automatically provided for you.
 
+### Requirements
+
+* Sqlite3
+* Compiler with C++14
+
 ### Install
 
 ```
