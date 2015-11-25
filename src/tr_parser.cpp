@@ -165,6 +165,10 @@ bool parse_gateway(std::vector<TraceToken> *tokens, IPV4 *out) {
         // first component
         inputs.backtrack();
         inputs.backtrack();
+    } else if (look_ahead.kind == TRACE_TOKEN_STAR) {
+        // sometimes we get a * when we don't get a response
+        return false;
+
     } else {
         // backtrack once to undo the look ahead
         inputs.backtrack();

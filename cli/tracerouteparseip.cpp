@@ -18,10 +18,17 @@ int main() {
         IPV4 ip {0, 0, 0, 0};
 
         std::getline(std::cin, line);
-        parser.parse(&line, &ip);
-        convertor.ip_to_string(&ip, &ip_string);
+        bool success = parser.parse(&line, &ip);
 
-        std::cout << ip_string << std::endl;
+        if (!success) {
+            std::cerr << "Failed to parse: '"
+                      << line
+                      << "' did the request timeout?"
+                      << std::endl;
+        } else {
+            convertor.ip_to_string(&ip, &ip_string);
+            std::cout << ip_string << std::endl;
+        }
     }
 
     finder.close();
