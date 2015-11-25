@@ -2,7 +2,14 @@
 
 DB_NAME=ip.db
 
+echo "Creating tables..."
 sqlite3 $DB_NAME < ip.sql
+
+echo "Importing data..."
 sqlite3 $DB_NAME < import
+
+echo "Dropping unused data..."
 sqlite3 $DB_NAME < drop_country_code.sql
+
+echo "Generating data index..."
 sqlite3 $DB_NAME < index.sql
