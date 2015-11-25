@@ -155,7 +155,21 @@ bool parse_gateway(std::vector<TraceToken> *tokens, IPV4 *out) {
 
     // the hop number
     result = expect(&inputs, TRACE_TOKEN_NUMBER);
-    
+
+    // sometimes the first number is not the hop number and it's just
+    // another IP address, here we look ahead
+    TraceToken look_ahead = inputs.advance();
+
+    if (look_ahead.kind == TRACE_TOKEN_DOT) {
+        // go back twice, once for the dot and another for the ip address
+        // first component
+        inputs.backtrack();
+        inputs.backtrack();
+    } else {
+        // backtrack once to undo the look ahead
+        inputs.backtrack();
+    }
+
     // the ip address
     result = expect_ip(&inputs, out);
 
