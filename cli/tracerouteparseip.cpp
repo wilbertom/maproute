@@ -8,8 +8,6 @@
 
 int main() {
 
-    IPLocationFinder finder{};
-
     while (std::cin.good()) {
         std::string line;
         std::string ip_string;
@@ -30,9 +28,7 @@ int main() {
             std::cout << ip_string << std::endl;
         }
     }
-
-    finder.close();
-
+    
     return 0;
 
 }
