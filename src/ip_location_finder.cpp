@@ -34,7 +34,7 @@ bool IPLocationFinder::get_location(const IPV4 *ip) {
         "SELECT country_name, region_name, city_name, latitude, longitude " \
         "FROM ips WHERE ";
     query.append(std::to_string(ip_number));
-    query.append(" BETWEEN ip_from AND ip_to");
+    query.append(" BETWEEN ip_from AND ip_to LIMIT 1");
 
     int result = sqlite3_exec(
         this->db, query.c_str(), process_lines, NULL, NULL
