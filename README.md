@@ -16,7 +16,7 @@ cd maproute
 
 mkdir /var/lib/maproute
 
-make; make command; make data
+make; make command; make db
 make install
 
 ```
@@ -61,6 +61,19 @@ You should update your database monthly from `http://lite.ip2location.com`, in
 order to download an updated copy of the database you need to register for
 a free account.
 
+After doing that you can update the database by downloading the lite DB5 CSV
+file and running the following commands.
+
+```
+cd </path/to/repository/data>
+mv </path/to/IP2LOCATION-LITE-DB5.CSV> .
+./create
+mv ip.db /var/lib/maproute/ip-location.db
+
+```
+
+For copyright reasons we can't keep an updated copy of the database with the
+repository.
 
 ### Attribution
 
